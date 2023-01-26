@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap'" rel="stylesheet"> 
+   
+</head>
+
+<body>
+    <div class = "container">
+        
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="can_mons"> 
+             {% comment %} <img src="{% static '/images/moving_mons/img1.png' %}" alt="hehe"
+                    0 = "{% static '/images/moving_mons/img1.png' %}"
+                    1 = "{% static '/images/moving_mons/img2.png' %}"
+                    2 = "{% static '/images/moving_mons/img3.png' %}" id = "change_img"> {% endcomment %}
+                    <img src="{% static '/images/moving_mons/dash_mons.gif' %}"  alt="HEHE" id = "change_img"> 
+                   
+        </div> 
+        <div class = "button">
+            <a href="{% url 'game' %}"><img src="{% static '/images/play.png' %}"  alt="HEHE"></a>
+        </div>
+        <div id = "footer">
+             <div id="create">
+                <p>Create</p>
+            </div>
+            <div id = "join">
+                <p>Join</p>
+            </div>
+            <div id = "region">
+                <p>Region: Asia</p>
+            </div>
+        </div>
+        
+        <div class="corner">
+            <div id="set">
+                <img src="{% static '/images/setting.png' %}"  alt="HEHE" id="setting">
+            </div>
+            
+        </div>
+        <div class="side">
+            <p>Player</p>
+            <div class = "input">
+                <input type="text" id="fname" name="fname" value="Player69">
+            </div>    
+            <div class="player_name">
+                 <p>Zombie</p>
+                <img src="{% static '/images/next.png' %}"  alt="HEHE" id = "next">
+                <img src="{% static '/images/next2.png' %}"  alt="HEHE" id = "next2">
+            </div>
+            <div class="customize">
+                <img src="{% static '/images/cus.png' %}"  alt="HEHE" id = "cus">
+                <p>Customize</p>
+            </div>
+            <div class="signin">
+                <p>Sign In</p>
+            </div>
+            
+        </div>
+        <div id="features">
+            <p>Features</p>
+            <div class="bomb_img">
+                <img src="{% static '/images/bomb.png' %}"  alt="HEHE" id = "bomb">
+                <img src="{% static '/images/next.png' %}"  alt="HEHE" id = "bomb_next">
+                <img src="{% static '/images/next2.png' %}"  alt="HEHE" id = "bomb_next2">
+            </div>
+            <div class="change_mode">
+                <div>
+                     <p id = "abcd">Dark Mode</p>
+                     <input type="checkbox">
+                </div>
+                <div id = "camera">
+                     <p id = "camera_text">Camera</p>
+                     <input type="checkbox">
+                </div>
+                <div id = "music">
+                     <p id = "music_text">Music</p>
+                     <input type="checkbox">
+                </div>
+            </div>
+        </div>
+
+         
+    </div>    
+    
+    {% comment %} <script src = "{% static 'Javascript/dashboard_mons.js' %}"></script> {% endcomment %}
+</body>
+</html>

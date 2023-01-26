@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.js"></script>
+    
+</head>
+<body bgcolor="black">
+
+
+        <img src="{% static '/images/ball.png' %}" width="10px" height="10px" alt="HEHE">
+        <img src="{% static '/images/sling.png' %}" width="10px" height="10px" alt="HEHE">
+
+        <img src="{% static '/images/bg_img.jpg' %}" width="10px" height="10px" alt="HEHE">
+        <img src="{% static '/images/castle_wall.png' %}" width="10px" height="10px" alt="HEHE">
+         <img src="{% static '/images/grd_img.png' %}" width="10px" height="10px" alt="HEHE">
+         <img src="{% static '/images/sling.png' %}" width="10px" height="10px" alt="HEHE">
+
+         <img src="{% static '/images/moving_mons/mons10.png' %}" alt="hehe" width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/mons11.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/mons12.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/King1.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/King2.png' %}" alt="hehe"  width="10px" height="10px">
+
+         <img src="{% static '/images/moving_mons/monster16.png' %}" alt="hehe"  width="10px" height="10px">
+          <img src="{% static '/images/moving_mons/monster17.png' %}" alt="hehe"  width="10px" height="10px">
+           <img src="{% static '/images/moving_mons/monster18.png' %}" alt="hehe"  width="10px" height="10px">
+  
+        <img src="{% static '/images/moving_mons/King3.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/King4.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/King5.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar1.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar2.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar3.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar4.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar5.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/moving_mons/bar6.png' %}" alt="hehe"  width="10px" height="10px">
+         <img src="{% static '/images/explode.png' %}" alt="hehe"  width="10px" height="10px">
+        <img src="{% static '/images/palm.png' %}" alt="hehe"  width="10px" height="10px">
+
+
+    <script>
+        let ballImage = "{% static '/images/ball.png' %}"
+        let explodeImage = "{% static '/images/explode.png' %}"
+        let handImage = "{% static '/images/palm.png' %}"
+
+        let backgroundImage = "{% static '/images/bg_img.jpg' %}"
+        let walkImage = "{% static '/images/giphy.gif' %}"
+        let towerImage = "{% static '/images/castle_wall.png' %}"
+        let slingImage = "{% static '/images/sling.png' %}"
+        let monster_img = "{% static '/images/monster.png' %}"
+        let dragon_img = "{% static '/images/dragon.png' %}"
+        let zombiee_img = "{% static '/images/zombie.png' %}"
+        let knight_img = "{% static '/images/knight.png' %}"
+        let monster1 = "{% static '/images/moving_mons/mons1.png' %}"
+        let monster2 = "{% static '/images/moving_mons/mons2.png' %}"
+        let monster3 = "{% static '/images/moving_mons/mons3.png' %}"
+        let monster10 = "{% static '/images/moving_mons/mons10.png' %}"
+        let monster11 = "{% static '/images/moving_mons/mons11.png' %}"
+        let monster12 = "{% static '/images/moving_mons/mons12.png' %}"
+        let zombie_img = [monster10, monster11, monster12];
+        let monster16 = "{% static '/images/moving_mons/mons16.png' %}"
+        let monster17 = "{% static '/images/moving_mons/mons17.png' %}"
+        let monster18 = "{% static '/images/moving_mons/mons18.png' %}"
+        let mons_img = [monster16,monster17,monster18];
+        let monster13 = "{% static '/images/moving_mons/mons13.png' %}"
+        let monster14 = "{% static '/images/moving_mons/mons14.png' %}"
+        let monster15 = "{% static '/images/moving_mons/mons15.png' %}"
+        let King1 = "{% static '/images/moving_mons/King1.png' %}"
+        let King2 = "{% static '/images/moving_mons/King2.png' %}"
+        let King3 = "{% static '/images/moving_mons/King3.png' %}"
+        let King4 = "{% static '/images/moving_mons/King4.png' %}"
+        let King5 = "{% static '/images/moving_mons/King5.png' %}"
+        let King_arr = [King1,King2,King3,King4,King5];
+        let bar1 = "{% static '/images/moving_mons/bar1.png' %}"
+        let bar2 = "{% static '/images/moving_mons/bar2.png' %}"
+        let bar3 = "{% static '/images/moving_mons/bar3.png' %}"
+        let bar4 = "{% static '/images/moving_mons/bar4.png' %}"
+        let bar5 = "{% static '/images/moving_mons/bar5.png' %}"
+        let bar6 = "{% static '/images/moving_mons/bar6.png' %}"
+        let bar = [bar1, bar2, bar3, bar4, bar5, bar6]
+    </script>
+
+    <script src="{% static 'Javascript/Hand.js' %}"></script>
+ <script src = "{% static 'Javascript/AllAttributes.js' %}"></script>
+    <script src="{% static 'Javascript/MatterSetup.js' %}"></script>
+    <script src = "{% static 'Javascript/Stone.js' %}"></script>
+    <script src = "{% static 'Javascript/Ground.js' %}"></script>
+    <script src = "{% static 'Javascript/Tower.js' %}"></script>
+    <script src = "{% static 'Javascript/health_Bar.js' %}"></script>
+    <script src = "{% static 'Javascript/Box.js' %}"></script>
+     <script src = "{% static 'Javascript/Weapon.js' %}"></script>
+    <script src = "{% static 'Javascript/SlingShot.js' %}"></script>
+    <script src = "{% static 'Javascript/king.js' %}"></script>
+    <script src = "{% static 'Javascript/zombie.js' %}"></script>
+     <script src = "{% static 'Javascript/wave2.js' %}"></script>
+    <script src = "{% static 'Javascript/main.js' %}"></script>
+    
+
+    
+</body>
+</html>
